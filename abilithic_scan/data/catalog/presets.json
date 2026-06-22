@@ -1,0 +1,14 @@
+{
+  "_comment": "Ready-made scan profiles. args are passed verbatim to nmap (targets appended). name_key/hint_key resolve via i18n.",
+  "profiles": [
+    {"id": "quick",        "args": ["-T4", "-F"],                          "name_key": "preset.quick.name",        "hint_key": "preset.quick.hint",        "needs_root": false, "intrusive": false},
+    {"id": "quick_ver",    "args": ["-sV", "-T4", "-F"],                   "name_key": "preset.quick_ver.name",    "hint_key": "preset.quick_ver.hint",    "needs_root": false, "intrusive": false},
+    {"id": "intense",      "args": ["-T4", "-A", "-v"],                    "name_key": "preset.intense.name",      "hint_key": "preset.intense.hint",      "needs_root": true,  "intrusive": false},
+    {"id": "intense_all",  "args": ["-p-", "-T4", "-A", "-v"],             "name_key": "preset.intense_all.name",  "hint_key": "preset.intense_all.hint",  "needs_root": true,  "intrusive": false},
+    {"id": "intense_udp",  "args": ["-sU", "-sS", "-T4", "-A", "-v"],      "name_key": "preset.intense_udp.name",  "hint_key": "preset.intense_udp.hint",  "needs_root": true,  "intrusive": false},
+    {"id": "ping_sweep",   "args": ["-sn"],                                "name_key": "preset.ping_sweep.name",   "hint_key": "preset.ping_sweep.hint",   "needs_root": false, "intrusive": false},
+    {"id": "discovery",    "args": ["-sn", "-PR", "-PS21-23,80,443,3389"], "name_key": "preset.discovery.name",    "hint_key": "preset.discovery.hint",    "needs_root": true,  "intrusive": false},
+    {"id": "vuln",         "args": ["-sV", "--script", "vuln"],            "name_key": "preset.vuln.name",         "hint_key": "preset.vuln.hint",         "needs_root": false, "intrusive": true},
+    {"id": "stealth",      "args": ["-sS", "-T2", "-f"],                   "name_key": "preset.stealth.name",      "hint_key": "preset.stealth.hint",      "needs_root": true,  "intrusive": false}
+  ]
+}

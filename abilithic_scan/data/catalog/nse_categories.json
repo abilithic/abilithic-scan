@@ -1,0 +1,28 @@
+{
+  "_comment": "The 14 official NSE categories + curated high-value script bundles. Hints resolve via i18n.",
+  "categories": [
+    {"id": "default",   "safety": "safe",       "hint_key": "nse.cat.default"},
+    {"id": "safe",      "safety": "safe",       "hint_key": "nse.cat.safe"},
+    {"id": "discovery", "safety": "safe",       "hint_key": "nse.cat.discovery"},
+    {"id": "version",   "safety": "safe",       "hint_key": "nse.cat.version"},
+    {"id": "auth",      "safety": "caution",    "hint_key": "nse.cat.auth"},
+    {"id": "broadcast", "safety": "safe",       "hint_key": "nse.cat.broadcast"},
+    {"id": "external",  "safety": "caution",    "hint_key": "nse.cat.external"},
+    {"id": "fuzzer",    "safety": "intrusive",  "hint_key": "nse.cat.fuzzer"},
+    {"id": "intrusive", "safety": "intrusive",  "hint_key": "nse.cat.intrusive"},
+    {"id": "brute",     "safety": "intrusive",  "hint_key": "nse.cat.brute"},
+    {"id": "dos",       "safety": "dangerous",  "hint_key": "nse.cat.dos"},
+    {"id": "exploit",   "safety": "dangerous",  "hint_key": "nse.cat.exploit"},
+    {"id": "malware",   "safety": "safe",       "hint_key": "nse.cat.malware"},
+    {"id": "vuln",      "safety": "caution",    "hint_key": "nse.cat.vuln"}
+  ],
+  "bundles": [
+    {"id": "common_vuln", "expr": "vuln",                                                "hint_key": "nse.bundle.common_vuln", "safety": "caution"},
+    {"id": "smb_enum",    "expr": "smb-os-discovery,smb-enum-shares,smb-vuln-ms17-010",  "hint_key": "nse.bundle.smb_enum",    "safety": "caution"},
+    {"id": "http_enum",   "expr": "http-title,http-headers,http-enum,http-methods",      "hint_key": "nse.bundle.http_enum",   "safety": "safe"},
+    {"id": "ssl_audit",   "expr": "ssl-cert,ssl-enum-ciphers,ssl-heartbleed",            "hint_key": "nse.bundle.ssl_audit",   "safety": "safe"},
+    {"id": "dns_checks",  "expr": "dns-recursion,dns-zone-transfer",                     "hint_key": "nse.bundle.dns_checks",  "safety": "safe"},
+    {"id": "default_creds","expr": "auth",                                               "hint_key": "nse.bundle.default_creds","safety": "caution"},
+    {"id": "cve_corr",    "expr": "vulners",                                             "hint_key": "nse.bundle.cve_corr",    "safety": "safe"}
+  ]
+}

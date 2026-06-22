@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# PyInstaller
+build/
+dist/
+*.spec.bak
+
+# Bundled Nmap (do not commit large binaries; add at build time)
+abilithic_scan/data/nmap/*
+!abilithic_scan/data/nmap/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# App output
+*.xlsx
+*.html
+*.json
+!abilithic_scan/data/**/*.json
+!abilithic_scan/i18n/locales/*.json
+scan.json
