@@ -9,13 +9,17 @@ SEV_COLOR = {
     "CRITICAL": "#ff5c7a", "HIGH": "#ff9f43", "MEDIUM": "#ffd166",
     "LOW": "#62d5b8", "INFO": "#8c97a8",
 }
+SEV_TEXT = {
+    "CRITICAL": "#ffffff", "HIGH": "#4a2500", "MEDIUM": "#4a3b00",
+    "LOW": "#06352b", "INFO": "#11202e",
+}
 
 
 def _badge(sev, t):
-    fg = "#0c1118" if sev in ("MEDIUM", "LOW", "INFO") else "#fff"
+    fg = SEV_TEXT.get(sev, "#11202e")
     return (f'<span style="background:{SEV_COLOR.get(sev)};color:{fg};'
-            f'padding:2px 8px;border-radius:8px;font-weight:600;font-size:12px">'
-            f'{E(t("severity." + sev))}</span>')
+            f'padding:3px 11px;border-radius:10px;font-weight:700;font-size:11px;'
+            f'letter-spacing:0.4px">{E(t("severity." + sev)).upper()}</span>')
 
 
 def save_html(result: ScanResult, path: str, t=None) -> str:

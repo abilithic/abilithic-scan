@@ -23,7 +23,7 @@ from ..engine import presets, locator
 from ..engine.command_builder import ScanSpec, preview
 from ..i18n import Translator
 from .. import reports
-from .theme import stylesheet, SEV_COLORS, ACCENT, MUTED
+from .theme import stylesheet, SEV_COLORS, SEV_TEXT, ACCENT, MUTED
 from .worker import ScanWorker
 from .table_model import PortTableModel, PortProxy
 from .nse_dialog import NSEDialog
@@ -502,21 +502,27 @@ class MainWindow(QMainWindow):
 
     def _render_priorities(self, result):
         rows = []
-        for p in result.priorities:
+        for i, p in enumerate(result.priorities):
             color = SEV_COLORS.get(p.severity, "#8c97a8")
-            fg = "#0c1118" if p.severity in ("MEDIUM", "LOW", "INFO") else "#fff"
+            fg = SEV_TEXT.get(p.severity, "#11202e")
+            stripe = "#161e29" if i % 2 == 0 else "#1a2330"
+            badge = (f"<span style='background:{color};color:{fg};padding:3px 12px;"
+                     f"border-radius:10px;font-weight:700;font-size:11px;"
+                     f"letter-spacing:0.5px'>&nbsp;{self.tr('severity.'+p.severity).upper()}&nbsp;</span>")
             rows.append(
-                f"<tr><td><span style='background:{color};color:{fg};padding:2px 8px;"
-                f"border-radius:8px;font-weight:600'>{self.tr('severity.'+p.severity)}</span></td>"
-                f"<td><b>{p.host}</b></td><td>{p.title}</td><td>{p.advice}</td></tr>")
-        body = "".join(rows) or f"<tr><td>{self.tr('common.none')}</td></tr>"
+                f"<tr style='background:{stripe}'>"
+                f"<td style='padding:8px 10px'>{badge}</td>"
+                f"<td style='padding:8px 10px;color:#e7edf5'><b>{p.host}</b></td>"
+                f"<td style='padding:8px 10px;color:#cdd6e2'>{p.title}</td>"
+                f"<td style='padding:8px 10px;color:#9fb0c2'>{p.advice}</td></tr>")
+        body = "".join(rows) or f"<tr><td style='padding:8px;color:{MUTED}'>{self.tr('common.none')}</td></tr>"
         self.prio_view.setHtml(
             f"<h3 style='color:{ACCENT}'>{self.tr('tab.priorities')}</h3>"
-            f"<table cellspacing='0' cellpadding='6' width='100%'>"
-            f"<tr><th align='left'>{self.tr('col.criticality')}</th>"
-            f"<th align='left'>{self.tr('col.host')}</th>"
-            f"<th align='left'>{self.tr('col.problem')}</th>"
-            f"<th align='left'>{self.tr('col.advice')}</th></tr>{body}</table>")
+            f"<table cellspacing='0' cellpadding='0' width='100%' style='border-collapse:collapse'>"
+            f"<tr><th align='left' style='padding:8px 10px;color:{MUTED};font-size:11px'>{self.tr('col.criticality')}</th>"
+            f"<th align='left' style='padding:8px 10px;color:{MUTED};font-size:11px'>{self.tr('col.host')}</th>"
+            f"<th align='left' style='padding:8px 10px;color:{MUTED};font-size:11px'>{self.tr('col.problem')}</th>"
+            f"<th align='left' style='padding:8px 10px;color:{MUTED};font-size:11px'>{self.tr('col.advice')}</th></tr>{body}</table>")
 
     def _on_host_selected(self, row):
         item = self.host_list.item(row)

@@ -59,6 +59,32 @@ and it doesn't tell you what's *risky*.
   fallback when not running as admin.
 - 💻 **Single `.exe`** — built with PyInstaller; bundles the Nmap engine.
 
+## 🖼️ Screenshots
+
+<div align="center">
+
+**Main window** — type a target, pick a profile, see the live command preview.
+
+<img src="assets/Screenshot-main.png" alt="Abilithic Scan — main window" width="820"/>
+
+**Live results** — open ports stream in, color-coded by criticality (High, Medium, Info).
+
+<img src="assets/Screenshot-port.png" alt="Abilithic Scan — open ports with criticality" width="820"/>
+
+**Host details** — per-port reasons and plain-language fix advice for each finding.
+
+<img src="assets/Screenshot-details.png" alt="Abilithic Scan — host details and advice" width="820"/>
+
+**HTML report** — shareable, with a ranked Priorities table and full port list.
+
+<img src="assets/Screenshot-reports.png" alt="Abilithic Scan — HTML report" width="820"/>
+
+**Excel report** — polished, multi-sheet, severity-colored, print-ready.
+
+<img src="assets/Screenshot-report-xlsx.png" alt="Abilithic Scan — Excel report" width="820"/>
+
+</div>
+
 ## 💻 System Requirements
 
 | | Minimum | Recommended |

@@ -66,12 +66,17 @@ QTabBar::tab {{ background:{SLATE}; color:{MUTED}; padding:8px 16px; border:1px 
 QTabBar::tab:selected {{ background:{SLATE2}; color:{ACCENT}; }}
 QTextEdit, QPlainTextEdit, QTextBrowser {{ background:{SLATE}; border:1px solid {LINE};
   border-radius:10px; padding:6px; }}
-QProgressBar {{ background:{SLATE2}; border:1px solid {LINE}; border-radius:8px; text-align:center;
-  color:{TEXT}; height:18px; }}
+QProgressBar {{ background:#cfd8e3; border:1px solid {LINE}; border-radius:8px; text-align:center;
+  color:#0a0e14; font-weight:700; height:20px; }}
 QProgressBar::chunk {{ background:{ACCENT}; border-radius:7px; }}
 QStatusBar {{ background:{SLATE}; color:{MUTED}; }}
 QSplitter::handle {{ background:{LINE}; }}
-QCheckBox {{ spacing:8px; }}
+QCheckBox {{ spacing:8px; color:{TEXT}; }}
+QCheckBox::indicator {{ width:16px; height:16px; border:1px solid {ACCENT};
+  border-radius:4px; background:{SLATE2}; }}
+QCheckBox::indicator:hover {{ border:1px solid {ACCENT}; background:{LINE}; }}
+QCheckBox::indicator:checked {{ background:{ACCENT}; border:1px solid {ACCENT}; }}
+QCheckBox::indicator:checked:hover {{ background:{ACCENT_DK}; }}
 QScrollBar:vertical {{ background:{CHARCOAL}; width:10px; }}
 QScrollBar::handle:vertical {{ background:{LINE}; border-radius:5px; }}
 QToolTip {{ background:{SLATE2}; color:{TEXT}; border:1px solid {ACCENT}; padding:6px; }}
@@ -97,9 +102,13 @@ QHeaderView::section { background:#eef1f6; color:#5a6675; border:none; border-bo
 QListWidget, QTextEdit, QPlainTextEdit, QTextBrowser { background:#fff; border:1px solid #e0e6ee; border-radius:10px; }
 QTabBar::tab { background:#eef1f6; color:#5a6675; padding:8px 16px; }
 QTabBar::tab:selected { background:#fff; color:#0fb497; }
-QProgressBar { background:#eef1f6; border:1px solid #e0e6ee; border-radius:8px; text-align:center; height:18px; }
+QProgressBar { background:#dbe4ee; border:1px solid #cdd5e0; border-radius:8px; text-align:center;
+  color:#0a0e14; font-weight:700; height:20px; }
 QProgressBar::chunk { background:#0fb497; border-radius:7px; }
 QStatusBar { background:#fff; color:#5a6675; }
+QCheckBox { spacing:8px; color:#1b2533; }
+QCheckBox::indicator { width:16px; height:16px; border:1px solid #0fb497; border-radius:4px; background:#fff; }
+QCheckBox::indicator:checked { background:#0fb497; border:1px solid #0fb497; }
 QToolTip { background:#fff; color:#1b2533; border:1px solid #0fb497; padding:6px; }
 """
 
